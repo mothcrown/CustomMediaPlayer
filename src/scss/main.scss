@@ -1,0 +1,18 @@
+@mixin border($width: 1px, $style: solid, $color: black) {
+  border: $width $style $color;
+}
+
+@mixin borderradius($radius: .5em) {
+  border-radius: $radius;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  @include border(1px, solid, red);
+}
