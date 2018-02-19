@@ -18,6 +18,7 @@ body {
   width: 100%;
   height: 100%;
   @include borderbox;
+  font-family: Arial;
 }
 
 .container {
@@ -26,34 +27,60 @@ body {
   width: 100%;
   height: 100%;
   flex-flow: column wrap;
-  @include border(1px, solid, red);
   @include borderbox;
 }
 
 header {
   background-color: grey;
-  @include border(1px, solid, blue);
-  padding: .5em;
-  height: 90px;
+  @include border;
+  border-bottom: none;
+  @include borderbox;
+  padding: .5em 1em .5em;
+  height: 15%;
+  h1 {
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 
 .player {
-  @include border(1px, solid, green);
+  display: flex;
+  height: 70%;
+  @include border;
+  @include borderbox;
 }
 
 .media {
-  @include border(1px, solid, purple);
+  width: 75%;
+  height: 100%;
+  @include border;
+  @include borderbox;
 }
 
 section {
-  @include border(1px, solid, yellow);
+  width: 100%;
+  height: 80%;
+  @include border;
+  @include borderbox;
 }
 
 article {
-  @include border(1px, solid, grey);
+  width: 100%;
+  height: 20%;
+  @include border;
+  @include borderbox;
+}
+
+aside {
+  width: 25%;
+  height: 100%;
 }
 
 footer {
+  height: 15%;
+  padding: 1em .5em .5em;
+  text-align: center;
+  @include borderbox;
   p {
     margin-top: 0;
   }
