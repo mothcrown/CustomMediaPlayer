@@ -25,9 +25,6 @@ module.exports = {
         query: {
           name: '[name].[ext]',
           outputPath: 'images/'
-          // the images will be emmited to public/assets/images/ folder
-          // the images will be put in the DOM <style> tag as eg. background:
-          // url(assets/images/image.png);
         }
       },
       {
@@ -37,9 +34,6 @@ module.exports = {
           limit: '10000',
           name: '[name].[ext]',
           outputPath: 'fonts/'
-          // the fonts will be emmited to public/assets/fonts/ folder
-          // the fonts will be put in the DOM <style> tag as eg.
-          // @font-face{ src:url(assets/fonts/font.ttf); }
         }
       },
       {
@@ -51,7 +45,7 @@ module.exports = {
         loader: 'json-loader'
       },
       {
-        test: /\.min\.js$/,
+        test: /(\.min)?\.js$/,
         loader: 'script-loader'
       }
     ]

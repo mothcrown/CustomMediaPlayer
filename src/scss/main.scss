@@ -6,13 +6,52 @@
   border-radius: $radius;
 }
 
-body {
-  margin: 0;
+@mixin borderbox() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
+html {
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  @include borderbox;
+}
+
 .container {
+  position: absolute;
   display: flex;
-  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  flex-flow: column wrap;
   @include border(1px, solid, red);
+  @include borderbox;
+}
+
+header {
+  background-color: grey;
+  @include border(1px, solid, blue);
+  height: 10%;
+  overflow: hidden;
+}
+
+.player {
+  @include border(1px, solid, green);
+}
+
+.media {
+  @include border(1px, solid, purple);
+}
+
+section {
+  @include border(1px, solid, yellow);
+}
+
+article {
+  @include border(1px, solid, grey);
 }
