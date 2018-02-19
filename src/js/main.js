@@ -1,3 +1,2 @@
 import $ from 'jquery'
-import './modernizr-custom'
-
+import './modernizr-custom.min'
