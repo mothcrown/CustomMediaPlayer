@@ -49,6 +49,13 @@ header {
   label {
     margin-left: .5em;
   }
+  input {
+    @include borderradius;
+  }
+}
+
+#user {
+  width: 20px;
 }
 
 .player {
@@ -95,6 +102,19 @@ article {
     width: 80%;
     cursor: pointer;
   }
+  &:hover {
+    color: forestgreen;
+    svg {
+      transform: scale(1.2);
+      path{
+        fill: currentColor !important;
+      }
+    }
+  }
+}
+
+#playpause {
+  margin-left: 1em;
 }
 
 aside {
