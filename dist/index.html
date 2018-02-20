@@ -9,23 +9,55 @@
 <body>
   <div class="container">
     <header>
-      <div class="background"></div>
-      <img id="logo" title="Mothy Media Player!" src="js/images/logo.svg"></img>
-     <h1>Mi reproductor web</h1>
+      <img id="logo" title="Mothy Media Player!" src="js/images/logo.svg">
+      <h1>Mi reproductor web</h1>
+      <div class="login">
+        <label for="userName">
+          <span>Nombre</span>
+          <input type="text" name="userName" id="userName">
+        </label>
+        <label for="userName">
+          <span>Password</span>
+          <input type="text" name="userPass" id="userPass">
+        </label>
+      </div>
     </header>
     <div class="player">
       <div class="media">
         <section></section>
-        <article></article>
+        <article>
+          <div id="playpause" class="control">
+            <svg
+              viewBox="0 0 1300 175.20004"
+              >
+              <path
+              d="m 901.59942,109.95862 c 0,0 -875.792998,486.72 -875.792998,486.72 -10.119,5.724 -18.798,6.389 -26.03599997,1.994 -7.23900003,-4.395 -10.85800003,-12.298 -10.89500003,-23.747 0,0 0,-970.78 0,-970.78 0,-11.412 3.619,-19.352 10.89500003,-23.747 7.27499997,-4.395 15.95399997,-3.73 26.03599997,1.994 0,0 875.792998,486.720005 875.792998,486.720005 10.119,5.724 15.179,12.52 15.179,20.459997 0,7.94 -5.06,14.735998 -15.179,20.459998 0,0 0,-0.074 0,-0.074"
+              id="path825"
+              inkscape:connector-curvature="0"
+              style="fill:#fffaf0;fill-opacity:1" />
+           </svg>
+          </div>
+          <div id="stop" class="control">
+            <svg
+            viewBox="0 0 1300 175.20004"
+            >
+              <path
+                d="m 1024.0002,-378.92485 c 0,0 0,938.657 0,938.657 0,11.536 -4.219,21.541 -12.656,30.016 -8.437,8.474 -18.44196,12.693 -30.01496,12.656 0,0 -341.334,0 -341.334,0 -11.535,0 -21.541,-4.219 -30.015,-12.656 -8.475,-8.437 -12.693,-18.442 -12.656,-30.016 0,0 0,-938.657 0,-938.657 0,-11.536 4.219,-21.541 12.656,-30.015 8.437,-8.475 18.442,-12.694 30.015,-12.656 0,0 341.334,0 341.334,0 11.535,0 21.54096,4.218 30.01496,12.656 8.475,8.437 12.693,18.442 12.656,30.015 0,0 0,0 0,0 m -597.32396,0 c 0,0 0,938.657 0,938.657 0,11.536 -4.219,21.541 -12.656,30.016 -8.437,8.474 -18.442,12.693 -30.015,12.656 0,0 -341.333999,0 -341.333999,0 -11.535,0 -21.541,-4.219 -30.015,-12.656 -8.4749997,-8.437 -12.6929997,-18.442 -12.65599969582,-30.016 0,0 0,-938.657 0,-938.657 0,-11.536 4.21899999582,-21.541 12.65599969582,-30.015 8.437,-8.475 18.442,-12.694 30.015,-12.656 0,0 341.333999,0 341.333999,0 11.535,0 21.541,4.218 30.015,12.656 8.475,8.437 12.693,18.442 12.656,30.015 0,0 0,0 0,0"
+                id="path5105"
+                inkscape:connector-curvature="0"
+                style="fill:#fffaf0;fill-opacity:1" />
+            </svg>
+          </div>
+        </article>
       </div>
       <aside>
         <ul class="playlist">
-          <li><p>Sophie - Hard</p></li>
-          <li><p>Video 1</p></li>
-          <li><p>Death Grips - Steroids (Crouching Tiger Hidden Gabber Megamix)</p></li>
-          <li><p>Video 2</p></li>
-          <li><p>Candelabrum - Distant Voices of the Darkest Night</p></li>
-          <li><p>Video 3</p></li>
+          <li><p><span class="title">SOPHIE - HARD</span></p></li>
+          <li><p><span class="title">Video 1</span></p></li>
+          <li><p><span class="title">Death Grips - Steroids (Crouching Tiger Hidden Gabber Megamix)</span></p></li>
+          <li><p><span class="title">Video 2</span></p></li>
+          <li><p><span class="title">Candelabrum - Distant Voices in the Darkest Night</span></p></li>
+          <li><p><span class="title">Marcos y sus juegos de rol</span></p></li>
         </ul>
       </aside>
     </div>

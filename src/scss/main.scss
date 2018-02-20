@@ -1,17 +1,4 @@
-@mixin border($width: 1px, $style: solid, $color: black) {
-  border: $width $style $color;
-}
-
-@mixin borderradius($radius: .5em) {
-  border-radius: $radius;
-}
-
-@mixin borderbox() {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
+@import "_aux.scss";
 
 body {
   margin: 0;
@@ -54,6 +41,16 @@ header {
   width: 120px;
 }
 
+.login {
+  margin: .5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  label {
+    margin-left: .5em;
+  }
+}
+
 .player {
   display: flex;
   height: 70%;
@@ -75,10 +72,29 @@ section {
 }
 
 article {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   width: 100%;
   height: 10%;
   @include border;
   @include borderbox;
+}
+
+.control {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: PlayerIcons;
+  color: floralwhite;
+  height: 100%;
+  width: 5%;
+  svg {
+    height: 80%;
+    width: 80%;
+    cursor: pointer;
+  }
 }
 
 aside {
@@ -98,12 +114,25 @@ aside {
     @include border;
     border-left: none;
     border-right: none;
+    overflow: hidden;
     p {
-      margin: .5em;
+      margin: .5em 0;
+      padding-left: .5em;
       width: 100%;
       cursor: pointer;
     }
+    &:hover {
+      background-color: #605052;
+    }
   }
+}
+
+.title {
+  display: block;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 footer {

@@ -1,0 +1,14 @@
+@mixin border($width: 1px, $style: solid, $color: black) {
+  border: $width $style $color;
+}
+
+@mixin borderradius($radius: .5em) {
+  border-radius: $radius;
+}
+
+@mixin borderbox() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
