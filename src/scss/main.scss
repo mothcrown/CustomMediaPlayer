@@ -16,6 +16,7 @@ body {
   width: 100%;
   height: 100%;
   flex-flow: column wrap;
+  overflow: hidden;
   @include borderbox; 
 }
 
@@ -147,7 +148,6 @@ aside {
     @include border;
     border-left: none;
     border-right: none;
-    overflow: hidden;
     p {
       display: inline-block;
       margin: .5em 0;
@@ -157,6 +157,7 @@ aside {
       overflow: hidden;
     }
     &:hover {
+      transform: scale(1.1);
       background-color: #605052;
     }
   }
@@ -186,6 +187,7 @@ footer {
 .played {
   color: forestgreen;
   &:hover {
+    transform: none;
     background-color: #1a1a1a !important;
   }
   span {

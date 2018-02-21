@@ -1,5 +1,4 @@
 import $ from 'jquery'
-import './modernizr-custom.min'
 import svg from './svglib'
 
 // IMAGES
@@ -12,7 +11,6 @@ const playlistLength = playlist.length
 
 let counter
 let playpauseStatus = 'play'
-
 
 const getAudioImg = audio => ({
   audio1: `${audio1}`,
@@ -27,10 +25,51 @@ const getAudioSrc = audio => ({
 })[audio]
 
 const getVideoSrc = video => ({
-  video1: 'js/video/video1.mp4',
-  video2: 'js/video/video2.mp4',
-  video3: 'js/video/video3.mp4'
+  video1: [
+    '<source src="js/video/video1.mp4" type="video/mp4">',
+    '<source src="js/video/video1.webm" type="video/webm">',
+    '<source src="js/video/video1.ogg" type="video/webm">'
+  ],
+  video2: [
+    '<source src="js/video/video2.mp4" type="video/mp4">'
+  ],
+  video3: [
+    '<source src="js/video/video3-HD.mp4" type="video/mp4">'
+  ]
 })[video]
+
+function playAudio(newTrack) {
+  $('audio').attr('src', getAudioSrc(newTrack))
+  $(`#${newTrack}`).closest('li').addClass('played')
+  $('audio').addClass('playing')
+  $('.screen').css('background-image', `url(${getAudioImg(newTrack)})`)
+  $('audio')[0].play()
+}
+
+function playVideo(newTrack) {
+  $('audio')[0].pause()
+  $('.screen').append('<video class="playing"></video>')
+  const sources = getVideoSrc(newTrack)
+  sources.map((src) => {
+    $('video').append(src)
+  })
+
+  if (newTrack === 'video3') {
+    if (window.innerWidth <= 480) {
+      $('source').attr('src', 'js/video/video3-VGA.mp4')
+    }
+    const sub = '<track label="Subtitulos" kind="subtitulos" srclang="es" src="js/subtitle/video3.vtt" default>'
+    $('video').append(sub)
+  }
+
+  $('video').on('ended', () => {
+    counter += 1
+    nextTrack()
+  })
+
+  $(`#${newTrack}`).closest('li').addClass('played')
+  $('video')[0].play()
+}
 
 function nextTrack() {
   $('video').remove()
@@ -50,21 +89,9 @@ function nextTrack() {
   const newTrack = playlist[counter]
 
   if (newTrack.substring(0, 5) === 'audio') {
-    $('audio').attr('src', getAudioSrc(newTrack))
-    $(`#${newTrack}`).closest('li').addClass('played')
-    $('audio').addClass('playing')
-    $('.screen').css('background-image', `url(${getAudioImg(newTrack)})`)
-    $('audio')[0].play()
+    playAudio(newTrack)
   } else {
-    $('audio')[0].pause()
-    $('.screen').append('<video class="playing"></video>')
-    $('video').attr('src', getVideoSrc(newTrack))
-    $('video').on('ended', () => {
-      counter += 1
-      nextTrack()
-    })
-    $(`#${newTrack}`).closest('li').addClass('played')
-    $('video')[0].play()
+    playVideo(newTrack)
   }
 }
 
@@ -87,6 +114,11 @@ function activatePlaylist() {
         counter = i
       }
     }
+
+    playpauseStatus = 'play'
+    $('#playpause').empty()
+    $('#playpause').append($(svg.lib.pause))
+
     nextTrack()
   })
 }

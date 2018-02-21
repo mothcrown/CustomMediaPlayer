@@ -8,6 +8,8 @@
   color: floralwhite;
   margin-right: 1em;
   content: "H";
+  z-index: 2;
+  background-color: #1a1a1a;
 }
 
 @mixin border($width: 1px, $style: solid, $color: black) {
