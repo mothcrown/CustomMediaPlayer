@@ -77,14 +77,12 @@ function nextTrack() {
   $('video').removeClass('playing')
   $('audio').removeClass('playing')
   $('li').removeClass('played')
-  
   $('.screen').css('background-image', '')
 
   if (counter !== 0) {
     const oldTrack = playlist[counter - 1]
     $(`#${oldTrack}`).closest('li').removeClass('played')
   }
-  
   counter = (counter === playlistLength) ? 0 : counter
   const newTrack = playlist[counter]
 
